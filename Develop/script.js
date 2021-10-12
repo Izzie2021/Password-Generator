@@ -13,13 +13,29 @@ function writePassword() {
 
 }
 
-function generatePassword () {
+function generatePassword() {
   var includeUppercase = document.querySelector("#uppercase").checked;
   var includeLowercase = document.querySelector("#lowercase").checked;
   var includeNumeric = document.querySelector("#numeric").checked;
-  var includeUppercase = document.querySelector("#uppercase").checked;
   var includeSpecialCharacters = document.querySelector("#special-characters").checked;
-  var passwordLength= document.querySelector("#password-length").value;
+  var passwordLength = document.querySelector("#password-length").value;
+  var generatedPassword = "";
+
+  var alphaCharacters = "abcdefghijklmnopqrstuvwxyz"; //to upper 
+  var numericCharacters = '0123456789';
+  var specialCharacters = ' !\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~';
+  var characterOptions = "";
+
+  characterOptions += includeUppercase ? alphaCharacters.toUpperCase() : "";
+  characterOptions += includeLowercase ? alphaCharacters : "";
+  characterOptions += includeNumeric ? numericCharacters : "";
+  characterOptions += includeSpecialCharacters ? specialCharacters : "";
+
+  while (generatedPassword.length < passwordLength) {
+    generatedPassword += characterOptions.charAt(Math.floor(Math.random() * generatedPassword.length));
+
+  }
+  return generatedPassword;
 
 }
 
