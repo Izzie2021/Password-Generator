@@ -37,10 +37,7 @@ function generatePassword() {
     var includeSpecialCharacters = document.querySelector("#special-characters").checked;
     var passwordLength = document.querySelector("#password-length").value;
   
-    if(!Number.isFinite(passwordLength)){
-      alert("Password length criteria must be a number");
-      return false;
-    }
+    
   
     if(passwordLength < 8 || passwordLength > 128){
       alert("Password length criteria must be greater than 8 and less than 128");
