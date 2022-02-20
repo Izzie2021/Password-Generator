@@ -30,16 +30,44 @@ function generatePassword() {
 
 }
 
+function validateInput() {
+  var includeUppercase = document.querySelector("#uppercase").checked;
+  var includeLowercase = document.querySelector("#lowercase").checked;
+  var includeNumeric = document.querySelector("#numeric").checked;
+  var includeSpecialCharacters = document.querySelector("#special-characters").checked;
+  var passwordLength = document.querySelector("#password-length").value;
+
+  if(!Number.isFinite(passwordLength)){
+    alert("Password length criteria must be a number");
+    return false;
+  }
+
+  if(passwordLength < 8 || passwordLength > 128){
+    alert("Password length criteria must be greater than 8 and less than 128");
+    return false;
+  }
+
+  console.log("==> includeUppercase");
+
+  
+
+
+
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  const isValid = validateInput();
 
-  passwordText.value = password;
+  if(isValid){
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
 
 }
 
