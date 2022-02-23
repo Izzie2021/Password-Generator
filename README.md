@@ -17,4 +17,4 @@ To meet the acceptance criteria, I did the following:
 -  Worked with HTML and CSS as well to make adjustments to app
 -  Button pressed creates a random unique password
 
-[Link to deployed application]()
+[Link to deployed application](https://izzie2021.github.io/Password-Generator/)
